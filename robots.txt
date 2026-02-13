@@ -1,0 +1,8 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://shrondajeanineco.com/sitemap.xml
+
+# Disallow crawling of admin areas (if any)
+Disallow: /admin/
+Disallow: /.git/
