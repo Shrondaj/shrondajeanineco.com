@@ -1,0 +1,16 @@
+image: alpine:latest
+
+pages:
+  stage: deploy
+  script:
+    - echo 'Deploying to GitLab Pages...'
+  artifacts:
+    paths:
+      - public
+  rules:
+    - if: $CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH
+
+before_script:
+  - apk add --no-cache rsync
+  - mkdir -p public
+  - rsync -av --exclude='.git*' --exclude='README.md' --exclude='public' ./ public/
